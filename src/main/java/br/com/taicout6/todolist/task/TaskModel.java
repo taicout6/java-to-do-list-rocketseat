@@ -31,4 +31,12 @@ public class TaskModel {
 
   @CreationTimestamp
   private LocalDateTime createdAt;
+
+  // Alterando setTiltle para que ele retorne uma mensagem para o usuário caso ele ultrapasse os 50 caracteres
+  public void setTiltle(String title) throws Exception {
+    if (title.length() > 50) {
+      throw new Exception("O campo title deve conter no máximo 50 caracteres");
+    }
+    this.title = title;
+  }
 }
